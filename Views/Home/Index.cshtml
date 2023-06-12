@@ -1,7 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+@{
+    Product productObject = new Product() { ProductName = "Boombox", Price = 120.00 };
+}
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
@@ -11,4 +13,9 @@
 <partial name="NavPartial" />
 <h1>Welcome to this site!</h1>
 <p>The rest of your View content here...</p>
+
+<h1>Home Page</h1>
+<partial name="ProductPartial" model="productObject" />
+
+
 <partial name="TimeKeeperPartial" view-data="ViewData" />
