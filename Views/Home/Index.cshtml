@@ -4,6 +4,10 @@
 @{
     Product productObject = new Product() { ProductName = "Boombox", Price = 120.00 };
 }
+@*From controller*@
+@model CSharp_Partials.Models.Product
+
+
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
@@ -16,6 +20,7 @@
 
 <h1>Home Page</h1>
 <partial name="ProductPartial" model="productObject" />
-
+@*From controller*@
+<partial name="ProductPartial" model="@Model" />
 
 <partial name="TimeKeeperPartial" view-data="ViewData" />

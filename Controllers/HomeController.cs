@@ -17,9 +17,13 @@ public class HomeController : Controller
     {
         // assigning ViewBag properties for the Index view
 
+        Product product = new Product();
+        product.ProductName = "WHATEVA";
+        product.Price = 6.69;
+
         ViewBag.CurrentTime = DateTime.Now;
         ViewBag.Message = "The Time is:";
-        return View();
+        return View(product);
     }
 
     public IActionResult Privacy()
