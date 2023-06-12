@@ -15,6 +15,10 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        // assigning ViewBag properties for the Index view
+
+        ViewBag.CurrentTime = DateTime.Now;
+        ViewBag.Message = "The Time is:";
         return View();
     }
 
