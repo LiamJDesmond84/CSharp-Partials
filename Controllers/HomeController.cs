@@ -13,17 +13,52 @@ public class HomeController : Controller
         _logger = logger;
     }
 
+    // OLD INDEX - Just an example of passing data to partials
+    //public IActionResult Index()
+    //{
+
+
+    //    Product product = new Product();
+    //    product.ProductName = "WHATEVA";
+    //    product.Price = 6.69;
+
+    //    // assigning ViewBag properties for the Index view
+    //    ViewBag.CurrentTime = DateTime.Now;
+    //    ViewBag.Message = "The Time is:";
+
+
+    //    return View(product);
+    //}
+
     public IActionResult Index()
     {
-        // assigning ViewBag properties for the Index view
+        return View();
+    }
 
-        Product product = new Product();
-        product.ProductName = "WHATEVA";
-        product.Price = 6.69;
+    [HttpPost("create/product")]
+    public IActionResult CreateProduct(Product newProduct)
+    {
+        if (ModelState.IsValid)
+        {
+            return RedirectToAction("Success");
+        }
+        return View("Index");
+    }
 
-        ViewBag.CurrentTime = DateTime.Now;
-        ViewBag.Message = "The Time is:";
-        return View(product);
+    [HttpPost("create/user")]
+    public IActionResult CreateUser(User newUser)
+    {
+        if (ModelState.IsValid)
+        {
+            return RedirectToAction("Success");
+        }
+        return View("Index");
+    }
+
+    [HttpGet("success")]
+    public string Success()
+    {
+        return "You have successfully submitted!";
     }
 
     public IActionResult Privacy()
