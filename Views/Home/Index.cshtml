@@ -15,9 +15,15 @@
 <h1>Welcome to this site!</h1>
 <p>The rest of your View content here...</p>
 
-<h1>Home Page</h1>
-<partial name="ProductPartial" model="productObject" />
+@*<h1>Home Page</h1>
+<partial name="ProductPartial" model="productObject" />*@
 @*From controller*@
-<partial name="ProductPartial" model="@Model" />
+@*<partial name="ProductPartial" model="@Model" />
 
-<partial name="TimeKeeperPartial" view-data="ViewData" />
+<partial name="TimeKeeperPartial" view-data="ViewData" />*@
+
+
+<h1>Add a Product</h1>
+<partial name="ProductPartialForm" />
+<h1>Add a User</h1>
+<partial name="UserPartialForm" />
