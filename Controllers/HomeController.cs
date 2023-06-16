@@ -68,6 +68,7 @@ public class HomeController : Controller
     [HttpPost("create/product")]
     public IActionResult CreateProduct(IndexViewModel modelData)
     {
+        Console.WriteLine("HERERERE");
         // To get the submitted Product from the submission, 
         // we would just need to grab "NewProduct" from the modelData object
         Product submittedProduct = modelData.NewProduct;
