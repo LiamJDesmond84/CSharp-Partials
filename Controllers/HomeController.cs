@@ -35,19 +35,54 @@ public class HomeController : Controller
         return View();
     }
 
+    // USING SEPARATE MODELS & PARTIALS
+
+    //[HttpPost("create/product")]
+    //public IActionResult CreateProduct(Product newProduct)
+    //{
+    //    if (ModelState.IsValid)
+    //    {
+    //        return RedirectToAction("Success");
+    //    }
+    //    return View("Index");
+    //}
+
+    //[HttpPost("create/user")]
+    //public IActionResult CreateUser(User newUser)
+    //{
+    //    if (ModelState.IsValid)
+    //    {
+    //        return RedirectToAction("Success");
+    //    }
+    //    return View("Index");
+    //}
+
+    //[HttpGet("success")]
+    //public string Success()
+    //{
+    //    return "You have successfully submitted!";
+    //}
+
+
+    // USING SINGLE VIEW MODEL(IndexViewModel)
     [HttpPost("create/product")]
-    public IActionResult CreateProduct(Product newProduct)
+    public IActionResult CreateProduct(IndexViewModel modelData)
     {
+        // To get the submitted Product from the submission, 
+        // we would just need to grab "NewProduct" from the modelData object
+        Product submittedProduct = modelData.NewProduct;
         if (ModelState.IsValid)
         {
             return RedirectToAction("Success");
         }
         return View("Index");
     }
-
     [HttpPost("create/user")]
-    public IActionResult CreateUser(User newUser)
+    public IActionResult CreateUser(IndexViewModel modelData)
     {
+        // To get the submitted User from the submission, 
+        // we would just need to grab "NewUser" from the modelData object
+        User submittedUser = modelData.NewUser;
         if (ModelState.IsValid)
         {
             return RedirectToAction("Success");
